@@ -18,19 +18,28 @@ class BookmarksController < ApplicationController
 	end
 
 	def create
-
+		@bookmark = Bookmark.new(bookmark_params)
+		if @bookmark.save
+			redirect_to bookmark_path(@bookmark)
+		else
+			render 'bookmarks/new'
+		end
 	end
 	
 	def edit
-
 	end
 
 	def update
-
+		@bookmark.update(bookmark_params)
+		if @bookmark.save
+			redirect_to bookmark_path(@bookmark)
+		else
+			render 'bookmarks/edit'
+		end
 	end
 
 	def destroy
-
+		@bookmark.destroy
 	end
 
 	private 
