@@ -11,10 +11,10 @@ class Bookmark < ApplicationRecord
 				new_bm.cbm_id = bm["id"]
 				new_bm.cbm_index = bm["index"]
 				new_bm.parent_id = bm["parentId"]
-				new_bm.title = bm["title"]
+				new_bm.name = bm["title"]
 				new_bm.url = bm["url"]
 				new_bm.save
-			else 
+			else
 				newCategory = Category.new(name: bm["title"], cbm_id: bm["id"])
 				newCategory.save
 			end

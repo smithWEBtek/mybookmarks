@@ -1,0 +1,19 @@
+<div>
+	<div>
+	<h4 id='top'>Bookmarks</h4>		
+	<% @categories.each do |category| %>
+		<%= link_to category.name, :anchor => category.name %> |
+	<% end %>
+	
+	<% @categories.each do |category| %>
+		<p><a href='#top'>^TOP</p>
+		<hr />
+		<h3 id=<%= category.name %>><%= category.name %></h3>
+		<% category.bookmarks.each do |bm| %>
+			<ul>
+				<li><%= link_to bm.name, bm.url %></li>
+			</ul>
+		<% end %>
+	<% end %>
+	</div>
+</div>

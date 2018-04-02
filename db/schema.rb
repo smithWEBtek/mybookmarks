@@ -16,11 +16,11 @@ ActiveRecord::Schema.define(version: 20180402013747) do
   enable_extension "plpgsql"
 
   create_table "bookmarks", id: :serial, force: :cascade do |t|
-    t.integer "category_id"
+    t.integer "category_id", default: 1
     t.integer "cbm_id"
     t.integer "cbm_index"
     t.integer "parent_id"
-    t.text "title"
+    t.text "name"
     t.text "url"
   end
 
