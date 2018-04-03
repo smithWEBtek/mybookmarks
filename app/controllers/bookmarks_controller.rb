@@ -1,10 +1,6 @@
 class BookmarksController < ApplicationController
 	before_action :set_bookmark, only: [:show, :edit, :update, :destroy]
 
-# AR Query Methods - .find/.find_by, .first, .last, .take, .where
-# CRUD in AR: #new, #create, #build, #save, #update, #destroy, .destroy_all
-# Bonus: before :each"
-
 	def index
 		@bookmarks = Bookmark.all
 		@categories = Category.tek_only

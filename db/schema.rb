@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180402013747) do
+ActiveRecord::Schema.define(version: 20180403003339) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,12 +22,21 @@ ActiveRecord::Schema.define(version: 20180402013747) do
     t.integer "parent_id"
     t.text "name"
     t.text "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "categories", force: :cascade do |t|
     t.text "name"
     t.text "description"
     t.integer "cbm_id"
+  end
+
+  create_table "tag_bookmarks", force: :cascade do |t|
+    t.integer "bookmark_id"
+    t.integer "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tags", force: :cascade do |t|

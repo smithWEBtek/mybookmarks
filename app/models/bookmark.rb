@@ -1,6 +1,9 @@
 class Bookmark < ApplicationRecord
 	belongs_to :category
-	has_many :tags
+
+	has_many :tag_bookmarks
+	has_many :tags, through: :tag_bookmarks 
+
 
 	def self.import_chrome_bookmarks
 		file = File.read(Rails.root.join('lib', 'assets', 'chrome_bookmarks.json'))
